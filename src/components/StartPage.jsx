@@ -6,13 +6,13 @@ export default class StartPage extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('start-icon', 'assets/Utilities/play.png');
-    this.load.image('instructions-icon', 'assets/Utilities/about.png');
-    this.load.image('quit-icon', 'assets/Utilities/close.png');
-    this.load.image('closebtn', 'assets/Utilities/close.png');
-    this.load.image('button-bg', 'assets/Utilities/element-holderbg.png');
-    this.load.image('rule-bg', 'assets/BackgroundAssets/Game3Rules.png');
-    this.load.image('background', 'assets/BackgroundAssets/bgPage.png');
+    this.load.image('start-icon', '/assets/Utilities/play.png');
+    this.load.image('instructions-icon', '/assets/Utilities/about.png');
+    this.load.image('quit-icon', '/assets/Utilities/close.png');
+    this.load.image('closebtn', '/assets/Utilities/close.png');
+    this.load.image('button-bg', '/assets/Utilities/element-holderbg.png');
+    this.load.image('rule-bg', '/assets/BackgroundAssets/Game3Rules.png');
+    this.load.image('background', '/assets/BackgroundAssets/bgPage.png');
     this.load.audio('buttonTap', 'assets/audio/buttonTap.mp3');
   }
 
@@ -28,7 +28,11 @@ export default class StartPage extends Phaser.Scene {
 
     // Create buttons
     this.createImageButton('start-icon', this.cameras.main.centerX - 400, 200, () => {
-      fetch('/api/increment', {
+      // fetch('http://localhost:3000/increment', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' }
+      // })
+      fetch('https://usergarden.vercel.app/increment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       })
