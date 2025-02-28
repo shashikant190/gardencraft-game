@@ -32,10 +32,11 @@ export default class StartPage extends Phaser.Scene {
       //   method: 'POST',
       //   headers: { 'Content-Type': 'application/json' }
       // })
-      fetch('https://usergarden.vercel.app/increment', {  
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-      })
+      // In your StartPage.jsx scene
+fetch('/api/increment', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' }
+})
       .then(response => response.json())
       .then(data => {
         console.log('Current count:', data.count);
@@ -46,7 +47,7 @@ export default class StartPage extends Phaser.Scene {
         this.scene.start('SelectGardenType');
       });
     }, 'Play');
-
+ 
     this.createImageButton('instructions-icon', this.cameras.main.centerX - 400, 300, () => {
       this.showRules();
     }, 'Rules');
