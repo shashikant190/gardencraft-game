@@ -33,7 +33,7 @@ export default class StartPage extends Phaser.Scene {
       //   headers: { 'Content-Type': 'application/json' }
       // })
       // In your StartPage.jsx scene
-fetch('/api/increment', {
+fetch('https://usergarden.vercel.app/api/increment', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' }
 })
